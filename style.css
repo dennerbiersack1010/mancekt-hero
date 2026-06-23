@@ -195,30 +195,6 @@ html, body {
   margin-bottom: 24px;
 }
 
-.highlight-word {
-  font-weight: 800;
-  position: relative;
-  display: inline-block;
-  color: var(--text-dark);
-}
-
-.highlight-word::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 4px;
-  background-color: var(--text-dark);
-  border-radius: 2px;
-  transform: scaleX(1);
-  transform-origin: left center;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.highlight-word:hover::after {
-  transform: scaleX(1.05);
-}
 
 /* Hero Subtitle Styling */
 .hero-subtitle {
@@ -580,10 +556,6 @@ html, body {
     margin-bottom: 16px;
   }
   
-  .highlight-word::after {
-    height: 3px;
-    bottom: -2px;
-  }
   
   .hero-subtitle {
     font-size: 14px;
@@ -679,10 +651,6 @@ html, body {
     font-size: 26px;
   }
   
-  .highlight-word::after {
-    height: 2px;
-    bottom: -1px;
-  }
 
   .mancekt-stat-val {
     font-size: 13px;
