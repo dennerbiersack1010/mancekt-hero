@@ -691,7 +691,7 @@ html, body {
 }
 
 /* Height-based media query to shrink layout for short laptop screens */
-@media (max-height: 800px) {
+@media (max-height: 800px) and (min-width: 901px) {
   .header {
     height: 75px;
   }
