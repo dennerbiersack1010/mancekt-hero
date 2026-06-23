@@ -3,7 +3,7 @@
 // DOM Elements
 const elements = {
   mancektStatVal1: document.getElementById('mancektStatVal1'),
-  vrPortraitImg: document.getElementById('vrPortraitImg')
+  devicesMockupImg: document.getElementById('devicesMockupImg')
 };
 
 // Background removal using edge-protected flood-fill from all four corners
@@ -92,8 +92,8 @@ function animateValue(obj, start, end, duration, suffix = '') {
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
   // Perform background cutout
-  if (elements.vrPortraitImg) {
-    removeImageBackground(elements.vrPortraitImg);
+  if (elements.devicesMockupImg) {
+    removeImageBackground(elements.devicesMockupImg);
   }
   
   // Start counter for Mancekt

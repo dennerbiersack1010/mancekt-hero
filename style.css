@@ -256,7 +256,7 @@ html, body {
   z-index: 25; /* Highest z-index so the woman sits in front of the stats text if they overlap */
 }
 
-.vr-portrait-img {
+.devices-mockup-img {
   height: 100%;
   width: auto;
   display: block;
