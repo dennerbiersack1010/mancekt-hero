@@ -100,4 +100,28 @@ document.addEventListener('DOMContentLoaded', () => {
   if (elements.mancektStatVal1) {
     animateValue(elements.mancektStatVal1, 0, 100, 1200, '%');
   }
+
+  // 3D Tilt Effect on Hover
+  const wrapper = document.querySelector('.image-wrapper');
+  const img = elements.devicesMockupImg;
+  if (wrapper && img) {
+    wrapper.addEventListener('mousemove', (e) => {
+      const rect = wrapper.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      // Calculate rotation based on offset from center
+      const rotateX = -(y - centerY) / 15; 
+      const rotateY = (x - centerX) / 15;
+      
+      img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03) translateZ(10px)`;
+    });
+    
+    wrapper.addEventListener('mouseleave', () => {
+      img.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1) translateZ(0)';
+    });
+  }
 });
