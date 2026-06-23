@@ -633,6 +633,9 @@ html, body {
     margin-top: 15px;
     padding-right: 0px;
     justify-content: center;
+    transform: scale(0.7);
+    transform-origin: center top;
+    height: 35px;
   }
   
   .mancekt-stat-col {
@@ -650,12 +653,12 @@ html, body {
   }
 
   .mancekt-stat-val {
-    font-size: 8px;
+    font-size: 11px;
     margin-bottom: 2px;
   }
 
   .mancekt-stat-lbl {
-    font-size: 5.5px;
+    font-size: 8px;
     line-height: 1.1;
   }
 }
@@ -680,12 +683,17 @@ html, body {
   }
   
 
+  .stats-group-mancekt {
+    transform: scale(0.55);
+    transform-origin: center top;
+  }
+
   .mancekt-stat-val {
-    font-size: 7px;
+    font-size: 11px;
   }
 
   .mancekt-stat-lbl {
-    font-size: 4.8px;
+    font-size: 8px;
     line-height: 1.1;
   }
 }
