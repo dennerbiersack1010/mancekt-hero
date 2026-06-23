@@ -179,14 +179,13 @@ html, body {
 
 /* Huge title */
 .hero-title {
-  font-size: 68px;
+  font-size: 56px;
   font-weight: 200;
   line-height: 1.12;
   letter-spacing: 0.01em;
   color: var(--text-dark);
   text-transform: uppercase;
   margin-bottom: 24px;
-  margin-left: 16px;
 }
 
 
@@ -198,7 +197,6 @@ html, body {
   color: var(--text-gray);
   max-width: 540px;
   margin-bottom: 36px;
-  margin-left: 16px;
 }
 
 .hero-subtitle strong {
@@ -211,7 +209,6 @@ html, body {
   display: flex;
   align-items: center;
   gap: 28px;
-  margin-left: 16px;
 }
 
 .btn-primary {
@@ -583,7 +580,7 @@ html, body {
   }
   
   .hero-title {
-    font-size: 32px;
+    font-size: 38px;
     margin-bottom: 16px;
   }
   
@@ -679,7 +676,7 @@ html, body {
   }
 
   .hero-title {
-    font-size: 26px;
+    font-size: 32px;
   }
   
 
@@ -703,18 +700,15 @@ html, body {
     padding-bottom: 20px;
   }
   .hero-title {
-    font-size: 56px;
+    font-size: 44px;
     margin-bottom: 16px;
-    margin-left: 16px;
   }
   .hero-subtitle {
     font-size: 14px;
     margin-bottom: 20px;
     line-height: 1.5;
-    margin-left: 16px;
   }
   .hero-ctas {
-    margin-left: 16px;
   }
   .btn-primary {
     padding: 12px 36px;
