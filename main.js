@@ -105,31 +105,4 @@ document.addEventListener('DOMContentLoaded', () => {
   if (elements.mancektStatVal1) {
     animateValue(elements.mancektStatVal1, 0, 100, 1200, '%');
   }
-
-  // 3D Tilt Effect on Hover for both images
-  const wrapper = document.querySelector('.image-wrapper');
-  if (wrapper && elements.statueBase && elements.statueHover) {
-    wrapper.addEventListener('mousemove', (e) => {
-      const rect = wrapper.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      // Calculate rotation based on offset from center
-      const rotateX = -(y - centerY) / 15; 
-      const rotateY = (x - centerX) / 15;
-      
-      const transformStyle = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03) translateZ(10px)`;
-      elements.statueBase.style.transform = transformStyle;
-      elements.statueHover.style.transform = transformStyle;
-    });
-    
-    wrapper.addEventListener('mouseleave', () => {
-      const resetStyle = 'rotateX(0deg) rotateY(0deg) scale(1) translateZ(0)';
-      elements.statueBase.style.transform = resetStyle;
-      elements.statueHover.style.transform = resetStyle;
-    });
-  }
 });

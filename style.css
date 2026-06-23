@@ -273,18 +273,21 @@ html, body {
 
 .statue-hover {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 15%; /* Position to align directly over the VR goggles */
+  left: 23%;
+  width: 53%; /* Size relative to the VR goggles lenses */
+  height: 25%;
   z-index: 2;
   opacity: 0;
+  border-radius: 20px;
+  mix-blend-mode: screen; /* Makes black backgrounds of the charts 100% transparent/invisible */
   transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
 }
 
 .statue-hover-container:hover .statue-hover {
-  opacity: 1;
-  filter: contrast(1.1) brightness(1.05) saturate(1.1);
+  opacity: 0.95;
+  transform: scale(1.05); /* Slight pop effect for the charts projection */
 }
 
 .gradient-overlay {
