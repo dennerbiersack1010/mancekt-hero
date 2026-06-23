@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mancekt Consórcio - Marketing Inteligente para Representantes de Consórcio">
+  <title>NeoVision & Mancekt - Premium Hero Section</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Floating Toggle Controller for User Review -->
+  <div class="theme-controller" id="themeController">
+    <div class="controller-title">Visualizar Versão</div>
+    <div class="controller-buttons">
+      <button class="toggle-btn active" id="btnOriginal" onclick="switchTheme('original')">Referência (NeoVision)</button>
+      <button class="toggle-btn" id="btnMancekt" onclick="switchTheme('mancekt')">Mancekt (Consórcio)</button>
+    </div>
+  </div>
+
+  <!-- Header / Navigation (Clean and Tall) -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#" class="logo-link">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span class="logo-text" id="logoText">NeoVision</span>
+      </a>
+
+      <!-- Only "Quero conversar" CTA on the right -->
+      <div class="header-cta-group">
+        <a href="https://mancekt.com/yayforms-fbc-utm/" class="nav-btn-conversar">Quero conversar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Wrapper -->
+  <main class="hero-wrapper">
+    
+    <!-- Hero Main Section -->
+    <section class="hero-section">
+      <div class="hero-grid-container">
+        
+        <!-- Left content column -->
+        <div class="hero-content">
+          <div class="hero-meta-tag">
+            <span class="meta-num" id="metaNum">05</span>
+            <span class="meta-label" id="metaLabel">FUTURISTIC</span>
+          </div>
+          
+          <h1 class="hero-title" id="heroTitle">
+            NEW <span class="accent-word">DIGITAL<svg class="heading-loop" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 5,28 C 60,32 120,30 190,15 C 140,32 70,36 35,42 C 20,44 15,38 32,34 C 65,26 135,16 195,8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg></span><br>
+            UNIVERSE
+          </h1>
+
+          <!-- Subheadline element -->
+          <p class="hero-subtitle" id="heroSubtitle">
+            In this futuristic realm, users can explore hyper-realistic virtual environments, interact with AI-driven avatars.
+          </p>
+          
+          <div class="hero-ctas">
+            <!-- Single Primary CTA button -->
+            <a href="https://mancekt.com/yayforms-fbc-utm/" class="btn-primary" id="primaryCta">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Right image column -->
+        <div class="hero-visual">
+          <div class="image-wrapper">
+            <img src="/assets/vr-hero.png" alt="Futuristic VR headset portrait" class="vr-portrait-img" id="vrPortraitImg">
+            <div class="gradient-overlay"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Diagonal Line Overlay (High-Fidelity SVG) -->
+    <div class="diagonal-divider">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="divider-svg" xmlns="http://www.w3.org/2000/svg">
+        <!-- Light gray fill above the line to match the hero background slope -->
+        <path d="M 0,0 L 1440,0 L 1440,10 L 936,10 L 648,100 L 0,100 Z" fill="#f3f3f3" />
+        <!-- Pure white fill below the line -->
+        <path d="M 0,120 L 1440,120 L 1440,10 L 936,10 L 648,100 L 0,100 Z" fill="#ffffff" />
+        <!-- Main line -->
+        <path d="M 0,100 L 648,100 L 936,10 L 1440,10" stroke="#e0e0e0" stroke-width="2.5" fill="none" />
+        <!-- Parallel offset line -->
+        <path d="M 0,92 L 646,92 L 934,2 L 1440,2" stroke="#f0f0f0" stroke-width="1" fill="none" />
+      </svg>
+    </div>
+
+    <!-- Middle Light Section (White background, ends the page now) -->
+    <section class="stats-section">
+      <div class="stats-container">
+        
+        <!-- ORIGINAL STATS GROUP (Visible in Original Theme) -->
+        <div class="stats-group-original" id="statsGroupOriginal">
+          <div class="stats-left-group">
+            <div class="clients-card">
+              <span class="clients-label">Trusted by Clients</span>
+              <div class="clients-row">
+                <div class="avatar-stack">
+                  <span class="avatar-circle"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80" alt="Client 1"></span>
+                  <span class="avatar-circle"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80&q=80" alt="Client 2"></span>
+                  <span class="avatar-circle"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&h=80&q=80" alt="Client 3"></span>
+                  <span class="avatar-circle"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&h=80&q=80" alt="Client 4"></span>
+                </div>
+                <span class="clients-count">20+</span>
+              </div>
+            </div>
+
+            <div class="network-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                <path d="M8 12a4 4 0 1 0 8 0 4 4 0 1 0-8 0z"/>
+                <path d="M12 8v8"/>
+                <path d="M8 12h8"/>
+              </svg>
+            </div>
+
+            <p class="stats-text">
+              In this futuristic realm, users can explore hyper-realistic virtual environments, interact with AI-driven avatars.
+            </p>
+          </div>
+
+          <div class="stats-right-group">
+            <div class="stat-number-box">
+              <span class="stat-number-val" id="statValOriginal">47.2%</span>
+              <span class="stat-number-lbl">Reality</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MANCEKT STATS GROUP (4 Columns, Visible in Mancekt Theme) -->
+        <div class="stats-group-mancekt hidden" id="statsGroupMancekt">
+          <div class="mancekt-stat-col">
+            <span class="mancekt-stat-val" id="mancektStatVal1">100%</span>
+            <span class="mancekt-stat-lbl">baseado em dados<br>da sua operação</span>
+          </div>
+          <div class="mancekt-stat-col">
+            <span class="mancekt-stat-val" id="mancektStatVal2">Diário</span>
+            <span class="mancekt-stat-lbl">acompanhamento<br>e ajustes contínuos</span>
+          </div>
+          <div class="mancekt-stat-col">
+            <span class="mancekt-stat-val" id="mancektStatVal3">IA</span>
+            <span class="mancekt-stat-lbl">qualificação inteligente<br>de cada interessado</span>
+          </div>
+          <div class="mancekt-stat-col">
+            <span class="mancekt-stat-val" id="mancektStatVal4">Único</span>
+            <span class="mancekt-stat-lbl">sistema construído<br>para a sua carteira</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JavaScript Bundle -->
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
