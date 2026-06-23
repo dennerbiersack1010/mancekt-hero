@@ -771,3 +771,147 @@ html, body {
     font-size: 11px;
   }
 }
+
+/* Problem Section Styles */
+.problem-section {
+  background-color: var(--bg-white);
+  padding: 100px 0;
+  width: 100%;
+}
+
+.problem-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.problem-main-title {
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--text-dark);
+  margin-bottom: 60px;
+  max-width: 800px;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.problem-card {
+  background-color: #f7f7f7;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: var(--transition);
+}
+
+.problem-card:hover {
+  transform: translateY(-5px);
+  background-color: var(--bg-white);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+}
+
+.problem-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: var(--bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  color: var(--text-dark);
+  transition: var(--transition);
+}
+
+.problem-card:hover .problem-card-icon {
+  background-color: var(--accent);
+  color: var(--text-white);
+}
+
+.problem-card h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.problem-card p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-gray);
+}
+
+/* Featured / Highlight Card styling */
+.problem-card-highlight {
+  background-color: var(--bg-dark);
+  border-color: var(--bg-dark);
+}
+
+.problem-card-highlight:hover {
+  background-color: #111111;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.problem-card-highlight .problem-card-icon {
+  background-color: #1c1c1c;
+  color: var(--text-white);
+}
+
+.problem-card-highlight:hover .problem-card-icon {
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+}
+
+.problem-card-highlight h3 {
+  color: var(--text-white);
+}
+
+.problem-card-highlight p {
+  color: #aaaaaa;
+}
+
+/* Responsive Queries for Problem Section */
+@media (max-width: 1024px) {
+  .problem-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .problem-card-highlight {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 900px) {
+  .problem-section {
+    padding: 60px 0;
+  }
+  .problem-container {
+    padding: 0 20px;
+  }
+  .problem-main-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .problem-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .problem-card-highlight {
+    grid-column: span 1;
+  }
+  .problem-card {
+    padding: 30px;
+  }
+}
+
