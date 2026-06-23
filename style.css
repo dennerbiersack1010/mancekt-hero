@@ -534,7 +534,7 @@ html, body {
   }
 
   .hero-section {
-    padding-bottom: 160px;
+    padding-bottom: 40px;
   }
 
   .hero-grid-container {
@@ -586,12 +586,12 @@ html, body {
   }
   
   .diagonal-divider {
-    height: 60px;
-    margin-top: -30px;
+    display: none !important;
   }
 
   .stats-section {
-    margin-top: -15px;
+    margin-top: 0;
+    padding-top: 30px;
     padding-bottom: 40px;
   }
 
@@ -609,7 +609,7 @@ html, body {
   
   .mancekt-stat-col {
     width: 25%;
-    padding: 0 2px;
+    padding: 0 1px;
     align-items: center;
     text-align: center;
   }
@@ -622,13 +622,13 @@ html, body {
   }
 
   .mancekt-stat-val {
-    font-size: 10px;
+    font-size: 9px;
     margin-bottom: 2px;
   }
 
   .mancekt-stat-lbl {
-    font-size: 7px;
-    line-height: 1.25;
+    font-size: 6px;
+    line-height: 1.1;
   }
 }
 
@@ -653,12 +653,12 @@ html, body {
   
 
   .mancekt-stat-val {
-    font-size: 8.5px;
+    font-size: 7.5px;
   }
 
   .mancekt-stat-lbl {
-    font-size: 6px;
-    line-height: 1.2;
+    font-size: 5.5px;
+    line-height: 1.1;
   }
 }
 
