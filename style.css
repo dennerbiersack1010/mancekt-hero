@@ -173,7 +173,6 @@ html, body {
   position: relative;
   width: 100%;
   background-color: var(--bg-white);
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
