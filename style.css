@@ -263,6 +263,7 @@ html, body {
   transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
   transform-style: preserve-3d;
   will-change: transform;
+  mix-blend-mode: multiply; /* Blends solid white background to transparent, avoiding artificial checkerboards */
 }
 
 .statue-base {
