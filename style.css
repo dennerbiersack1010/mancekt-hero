@@ -775,143 +775,317 @@ html, body {
 /* Problem Section Styles */
 .problem-section {
   background-color: var(--bg-white);
-  padding: 100px 0;
+  padding: 120px 0;
   width: 100%;
+  position: relative;
+  overflow: hidden;
+  /* Thin grid line background effect from reference */
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
 }
 
 .problem-container {
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 40px;
+  position: relative;
+  z-index: 5;
+}
+
+/* Two-column layout grid */
+.problem-layout-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+/* Left Column Styling */
+.problem-left-col {
+  display: flex;
+  flex-direction: column;
 }
 
 .problem-main-title {
-  font-size: 38px;
+  font-size: 40px;
   font-weight: 300;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
   color: var(--text-dark);
-  margin-bottom: 60px;
-  max-width: 800px;
+  margin-bottom: 24px;
 }
 
-.problem-grid {
+.problem-subtext-group {
+  margin-bottom: 45px;
+}
+
+.problem-intro-p {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-gray);
+  margin-bottom: 16px;
+}
+
+.problem-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.problem-list li {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--text-gray);
+  position: relative;
+  padding-left: 20px;
+}
+
+.problem-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+/* Mini Cards container (Landscape side-by-side) */
+.problem-mini-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: auto;
+}
+
+.problem-mini-card {
+  background-color: #fcfcfc;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 24px;
+  min-height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+}
+
+.problem-mini-card:hover {
+  transform: translateY(-3px);
+  background-color: var(--bg-white);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.04);
+}
+
+.mini-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.mini-card-tag {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.corner-target-icon {
+  color: rgba(0,0,0,0.15);
+  transition: var(--transition);
+}
+
+.problem-mini-card:hover .corner-target-icon {
+  color: var(--accent);
+}
+
+.problem-mini-card h4 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-dark);
+  margin-top: 15px;
+}
+
+/* Right Column (Tall Premium Cards with design content inside) */
+.problem-right-col {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 30px;
 }
 
-.problem-card {
+.problem-tall-card {
+  position: relative;
   background-color: #f7f7f7;
   border: 1px solid var(--border-light);
   border-radius: 20px;
   padding: 40px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: flex-end;
+  overflow: hidden;
   transition: var(--transition);
 }
 
-.problem-card:hover {
+.problem-tall-card:hover {
   transform: translateY(-5px);
   background-color: var(--bg-white);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.05);
 }
 
-.problem-card-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background-color: var(--bg-white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
-  color: var(--text-dark);
+/* Abstract Design Shape aligned internally */
+.card-abstract-img {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  opacity: 0.35;
+  mix-blend-mode: multiply; /* Blends abstract shape cleanly */
   transition: var(--transition);
+  pointer-events: none;
 }
 
-.problem-card:hover .problem-card-icon {
-  background-color: var(--accent);
-  color: var(--text-white);
+.problem-tall-card:hover .card-abstract-img {
+  transform: scale(1.08) rotate(4deg);
+  opacity: 0.5;
 }
 
-.problem-card h3 {
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--text-dark);
+.tall-card-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.tall-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   margin-bottom: 16px;
+  width: 100%;
+}
+
+.tall-card-header h3 {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--text-dark);
+  max-width: 80%;
   letter-spacing: -0.01em;
 }
 
-.problem-card p {
+.problem-tall-card .corner-target-icon {
+  margin-top: 4px;
+}
+
+.problem-tall-card:hover .corner-target-icon {
+  color: var(--accent);
+}
+
+.problem-tall-card p {
   font-size: 15px;
   font-weight: 300;
   line-height: 1.6;
   color: var(--text-gray);
 }
 
-/* Featured / Highlight Card styling */
-.problem-card-highlight {
+/* Featured / Dark Highlight Tall Card */
+.tall-card-highlight {
   background-color: var(--bg-dark);
   border-color: var(--bg-dark);
 }
 
-.problem-card-highlight:hover {
+.tall-card-highlight:hover {
   background-color: #111111;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
 }
 
-.problem-card-highlight .problem-card-icon {
-  background-color: #1c1c1c;
+.invert-abstract {
+  filter: invert(1) brightness(1.2); /* Inverts the white background png to merge with dark background */
+  opacity: 0.12;
+}
+
+.tall-card-highlight:hover .card-abstract-img {
+  opacity: 0.2;
+}
+
+.tall-card-highlight .tall-card-header h3 {
   color: var(--text-white);
 }
 
-.problem-card-highlight:hover .problem-card-icon {
-  background-color: var(--bg-white);
-  color: var(--text-dark);
+.tall-card-highlight .corner-target-icon {
+  color: rgba(255, 255, 255, 0.2);
 }
 
-.problem-card-highlight h3 {
+.tall-card-highlight:hover .corner-target-icon {
   color: var(--text-white);
 }
 
-.problem-card-highlight p {
+.tall-card-highlight p {
   color: #aaaaaa;
 }
 
-/* Responsive Queries for Problem Section */
+/* Responsive Queries */
 @media (max-width: 1024px) {
-  .problem-grid {
-    grid-template-columns: 1fr 1fr;
+  .problem-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
   }
-  .problem-card-highlight {
-    grid-column: span 2;
+  
+  .problem-mini-cards {
+    margin-top: 30px;
+  }
+  
+  .problem-right-col {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 900px) {
   .problem-section {
-    padding: 60px 0;
+    padding: 70px 0;
   }
+  
   .problem-container {
     padding: 0 20px;
   }
+
   .problem-main-title {
-    font-size: 28px;
-    margin-bottom: 40px;
-    text-align: center;
+    font-size: 30px;
   }
-  .problem-grid {
+
+  .problem-mini-cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .problem-mini-card {
+    min-height: auto;
+  }
+  
+  .problem-right-col {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  .problem-card-highlight {
-    grid-column: span 1;
-  }
-  .problem-card {
+  
+  .problem-tall-card {
     padding: 30px;
+    min-height: auto;
+  }
+  
+  .card-abstract-img {
+    width: 180px;
+    height: 180px;
   }
 }
+
 
