@@ -505,8 +505,36 @@ html, body {
     gap: 30px;
   }
   
-  .stats-right-group {
-    margin-right: 20px;
+  .stats-group-mancekt {
+    flex-direction: row !important;
+    gap: 0px;
+    margin-top: 15px;
+    padding-right: 0px;
+    justify-content: center;
+  }
+  
+  .mancekt-stat-col {
+    width: 25%;
+    padding: 0 2px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .mancekt-stat-col:not(:last-child)::after {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.08);
+    top: 2px;
+    bottom: 2px;
+  }
+
+  .mancekt-stat-val {
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+
+  .mancekt-stat-lbl {
+    font-size: 7px;
+    line-height: 1.25;
   }
 }
 
@@ -622,12 +650,12 @@ html, body {
   }
 
   .mancekt-stat-val {
-    font-size: 9px;
+    font-size: 8px;
     margin-bottom: 2px;
   }
 
   .mancekt-stat-lbl {
-    font-size: 6px;
+    font-size: 5.5px;
     line-height: 1.1;
   }
 }
@@ -653,11 +681,11 @@ html, body {
   
 
   .mancekt-stat-val {
-    font-size: 7.5px;
+    font-size: 7px;
   }
 
   .mancekt-stat-lbl {
-    font-size: 5.5px;
+    font-size: 4.8px;
     line-height: 1.1;
   }
 }
