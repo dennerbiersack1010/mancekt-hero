@@ -537,6 +537,10 @@ html, body {
     padding: 8px 18px;
   }
 
+  .hero-section {
+    padding-bottom: 90px;
+  }
+
   .hero-grid-container {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -609,7 +613,7 @@ html, body {
   
   .mancekt-stat-col {
     width: 25%;
-    padding: 0 4px;
+    padding: 0 2px;
     align-items: center;
     text-align: center;
   }
@@ -622,12 +626,12 @@ html, body {
   }
 
   .mancekt-stat-val {
-    font-size: 15px;
+    font-size: 12px;
     margin-bottom: 2px;
   }
 
   .mancekt-stat-lbl {
-    font-size: 9px;
+    font-size: 8px;
     line-height: 1.25;
   }
 }
@@ -653,11 +657,11 @@ html, body {
   
 
   .mancekt-stat-val {
-    font-size: 13px;
+    font-size: 10px;
   }
 
   .mancekt-stat-lbl {
-    font-size: 8px;
+    font-size: 7px;
     line-height: 1.2;
   }
 }
