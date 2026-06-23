@@ -3,11 +3,13 @@
 // DOM Elements
 const elements = {
   mancektStatVal1: document.getElementById('mancektStatVal1'),
-  devicesMockupImg: document.getElementById('devicesMockupImg')
+  statueBase: document.getElementById('statueBase'),
+  statueHover: document.getElementById('statueHover')
 };
 
 // Background removal using edge-protected flood-fill from all four corners
 function removeImageBackground(imgElement) {
+  if (!imgElement) return;
   const img = new Image();
   img.src = imgElement.src;
   img.onload = () => {
@@ -91,9 +93,12 @@ function animateValue(obj, start, end, duration, suffix = '') {
 
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
-  // Perform background cutout
-  if (elements.devicesMockupImg) {
-    removeImageBackground(elements.devicesMockupImg);
+  // Perform background cutout on both statue layers
+  if (elements.statueBase) {
+    removeImageBackground(elements.statueBase);
+  }
+  if (elements.statueHover) {
+    removeImageBackground(elements.statueHover);
   }
   
   // Start counter for Mancekt
@@ -101,10 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
     animateValue(elements.mancektStatVal1, 0, 100, 1200, '%');
   }
 
-  // 3D Tilt Effect on Hover
+  // 3D Tilt Effect on Hover for both images
   const wrapper = document.querySelector('.image-wrapper');
-  const img = elements.devicesMockupImg;
-  if (wrapper && img) {
+  if (wrapper && elements.statueBase && elements.statueHover) {
     wrapper.addEventListener('mousemove', (e) => {
       const rect = wrapper.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -117,11 +121,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const rotateX = -(y - centerY) / 15; 
       const rotateY = (x - centerX) / 15;
       
-      img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03) translateZ(10px)`;
+      const transformStyle = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03) translateZ(10px)`;
+      elements.statueBase.style.transform = transformStyle;
+      elements.statueHover.style.transform = transformStyle;
     });
     
     wrapper.addEventListener('mouseleave', () => {
-      img.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1) translateZ(0)';
+      const resetStyle = 'rotateX(0deg) rotateY(0deg) scale(1) translateZ(0)';
+      elements.statueBase.style.transform = resetStyle;
+      elements.statueHover.style.transform = resetStyle;
     });
   }
 });
