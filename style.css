@@ -650,13 +650,13 @@ html, body {
   }
 
   .mancekt-stat-val {
-    font-size: 7px;
+    font-size: 13px;
     margin-bottom: 2px;
   }
 
   .mancekt-stat-lbl {
-    font-size: 5px;
-    line-height: 1.1;
+    font-size: 9px;
+    line-height: 1.2;
   }
 }
 
@@ -681,11 +681,11 @@ html, body {
   
 
   .mancekt-stat-val {
-    font-size: 6px;
+    font-size: 11px;
   }
 
   .mancekt-stat-lbl {
-    font-size: 4.5px;
+    font-size: 8px;
     line-height: 1.1;
   }
 }
