@@ -284,6 +284,8 @@ html, body {
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
   transform: scale(0.9) translateX(20px) translateY(10px); /* Start slightly smaller, shifted right and lower */
+  image-rendering: -webkit-optimize-contrast; /* Forces browsers to render image lines with maximum crispness */
+  image-rendering: crisp-edges;
 }
 
 .statue-hover-container:hover .statue-hover {
