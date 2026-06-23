@@ -273,8 +273,8 @@ html, body {
 
 .statue-hover {
   position: absolute;
-  top: 5%; /* Higher and wider to float in front of the goggles */
-  left: 10%;
+  top: 5%; /* Higher to align vertically in front of the goggles */
+  left: -25%; /* Shifted significantly to the left to sit right in front of the goggles */
   width: 75%; /* Covers more area for projected graphics */
   height: 45%;
   z-index: 2;
@@ -283,12 +283,12 @@ html, body {
   mix-blend-mode: screen; /* Blends the black background of the hologram cleanly */
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
-  transform: scale(0.9) translateY(10px); /* Start slightly smaller and lower */
+  transform: scale(0.9) translateX(20px) translateY(10px); /* Start slightly smaller, shifted right and lower */
 }
 
 .statue-hover-container:hover .statue-hover {
   opacity: 0.95;
-  transform: scale(1.05) translateY(-5px); /* Pops up and forward in front of the goggles */
+  transform: scale(1.05) translateX(0) translateY(-5px); /* Glides left and floats in front of the goggles */
 }
 
 .gradient-overlay {
