@@ -274,13 +274,13 @@ html, body {
 .statue-hover {
   position: absolute;
   top: 5%; /* Higher to align vertically in front of the goggles */
-  left: -25%; /* Shifted significantly to the left to sit right in front of the goggles */
+  left: -32%; /* Shifted slightly further left to sit clearly in front of the goggles */
   width: 75%; /* Covers more area for projected graphics */
   height: 45%;
   z-index: 2;
   opacity: 0;
   border-radius: 10px;
-  mix-blend-mode: screen; /* Blends the black background of the hologram cleanly */
+  mix-blend-mode: multiply; /* Since the PNG is transparent with dark/charcoal lines, multiply makes whites transparent (if any) and blends dark elements cleanly */
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
   transform: scale(0.9) translateX(20px) translateY(10px); /* Start slightly smaller, shifted right and lower */
