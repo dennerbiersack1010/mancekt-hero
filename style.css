@@ -263,7 +263,6 @@ html, body {
   transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
   transform-style: preserve-3d;
   will-change: transform;
-  mix-blend-mode: multiply; /* Blends the pure white background of the generated PNGs to transparent */
 }
 
 .statue-base {
@@ -284,6 +283,7 @@ html, body {
 
 .statue-hover-container:hover .statue-hover {
   opacity: 1;
+  filter: contrast(1.1) brightness(1.05) saturate(1.1);
 }
 
 .gradient-overlay {
