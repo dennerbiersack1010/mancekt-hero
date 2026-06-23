@@ -58,7 +58,7 @@ html, body {
 .logo-link {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
   text-decoration: none;
   color: var(--text-dark);
   transition: var(--transition);
