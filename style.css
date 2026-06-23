@@ -534,7 +534,7 @@ html, body {
   }
 
   .hero-section {
-    padding-bottom: 90px;
+    padding-bottom: 160px;
   }
 
   .hero-grid-container {
@@ -622,12 +622,12 @@ html, body {
   }
 
   .mancekt-stat-val {
-    font-size: 12px;
+    font-size: 10px;
     margin-bottom: 2px;
   }
 
   .mancekt-stat-lbl {
-    font-size: 8px;
+    font-size: 7px;
     line-height: 1.25;
   }
 }
@@ -653,11 +653,11 @@ html, body {
   
 
   .mancekt-stat-val {
-    font-size: 10px;
+    font-size: 8.5px;
   }
 
   .mancekt-stat-lbl {
-    font-size: 7px;
+    font-size: 6px;
     line-height: 1.2;
   }
 }
