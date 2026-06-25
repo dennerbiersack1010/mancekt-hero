@@ -630,16 +630,17 @@ html, body {
   }
   
   .hero-content {
+    order: 2;
     align-items: center;
     padding-right: 0;
   }
-  
+
   .hero-title {
     font-size: 38px;
     margin-bottom: 16px;
   }
-  
-  
+
+
   .hero-subtitle {
     font-size: 14px;
     margin-left: auto;
@@ -648,27 +649,37 @@ html, body {
     line-height: 1.5;
     max-width: 320px;
   }
-  
+
   .hero-ctas {
     justify-content: center;
     width: 100%;
   }
-  
+
   .btn-primary {
     width: auto;
     max-width: none;
     padding: 12px 32px;
     font-size: 14px;
   }
-  
+
   .hero-visual {
-    display: none !important;
+    order: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-bottom: 4px;
   }
-  
+
   .image-wrapper {
-    display: none !important;
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    height: 280px;
+    margin: 0 auto;
+    transform: none;
   }
-  
+
   .diagonal-divider {
     display: none !important;
   }
