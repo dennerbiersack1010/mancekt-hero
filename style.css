@@ -87,19 +87,19 @@ html, body {
   font-size: 15px;
   font-weight: 500;
   color: var(--text-white);
-  background-color: var(--accent);
+  background: linear-gradient(135deg, #7b0099 0%, #e60073 100%);
   text-decoration: none;
   padding: 12px 28px;
   border-radius: 999px;
-  border: 1px solid var(--accent);
+  border: none;
   transition: var(--transition);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(123, 0, 153, 0.18);
 }
 
 .nav-btn-conversar:hover {
-  background-color: #222222;
+  background: linear-gradient(135deg, #9100b3 0%, #ff0080 100%);
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 16px rgba(230, 0, 115, 0.35);
 }
 
 /* Hero Wrapper */
@@ -216,19 +216,40 @@ html, body {
   font-size: 16px;
   font-weight: 500;
   color: var(--text-white);
-  background-color: var(--accent);
+  background: linear-gradient(135deg, #7b0099 0%, #e60073 100%);
   padding: 16px 44px;
   border-radius: 999px;
   text-decoration: none;
   transition: var(--transition);
-  border: 1px solid var(--accent);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  border: none;
+  box-shadow: 0 4px 18px rgba(123, 0, 153, 0.22);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  background-color: #222222;
+  box-shadow: 0 8px 25px rgba(230, 0, 115, 0.45);
+  background: linear-gradient(135deg, #9100b3 0%, #ff0080 100%);
+}
+
+/* Larger CTA buttons on desktop for: A Solução, Como Funciona, O Processo, Resultados Reais, Diagnóstico Grátis, and the closing section */
+@media (min-width: 901px) {
+  .solution-cta-group .btn-primary,
+  .learning-cta .btn-primary,
+  .evolution-cta .btn-primary,
+  .cases-footer .btn-primary,
+  .diagnostic-content .btn-primary,
+  .closing-container .btn-primary {
+    font-size: 18px;
+    padding: 20px 56px;
+  }
+
+  .evolution-cta .btn-primary,
+  .cases-footer .btn-primary,
+  .diagnostic-content .btn-primary,
+  .closing-container .btn-primary {
+    display: inline-block;
+    margin-top: 16px;
+  }
 }
 
 /* Right Column Visual Image */
@@ -714,14 +735,48 @@ html, body {
     font-size: 32px;
   }
   
+  .btn-primary {
+    display: inline-block;
+    width: 100%;
+    max-width: 310px;
+    padding: 14px 20px;
+    font-size: 14px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .hero-ctas {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* 2x2 Clean Grid for Stats on Mobile */
+  .stats-group-mancekt {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 10px;
+    margin-top: 35px;
+    justify-items: center;
+  }
+
+  .mancekt-stat-col {
+    width: 100% !important;
+    padding: 0 10px !important;
+  }
+
+  .mancekt-stat-col:not(:last-child)::after {
+    display: none !important; /* Hide line borders on 2x2 grid */
+  }
 
   .mancekt-stat-val {
-    font-size: 11px;
+    font-size: 24px !important;
+    margin-bottom: 2px;
   }
 
   .mancekt-stat-lbl {
-    font-size: 8px;
-    line-height: 1.1;
+    font-size: 11px !important;
+    line-height: 1.25;
   }
 }
 
@@ -1413,8 +1468,14 @@ html, body {
 }
 
 @media (max-width: 600px) {
+  .solution-cta-group {
+    text-align: center;
+  }
+
   .macbook-container {
-    max-width: 320px;
+    width: 100%;
+    max-width: 310px;
+    margin: 0 auto;
   }
   
   .macbook-inner-screen {
@@ -1497,10 +1558,11 @@ html, body {
 }
 
 /* Reduced size of the premium dark cards */
+/* Reduced size of the premium dark cards */
 .process-card {
   flex: 1;
-  max-width: 250px; /* Reduced width to feel smaller and tighter */
-  min-height: 310px; /* Aligned height */
+  max-width: 260px; /* Increased width */
+  min-height: 215px; /* Reduced height from bottom to top */
   background: #0d0e12; 
   border: 1px solid rgba(255, 255, 255, 0.03);
   border-radius: 20px; /* Slightly tighter border-radius */
@@ -1540,32 +1602,32 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(0, 0, 0, 0.15);
-  transition: color 0.3s ease;
-  animation: pulseArrow 3s ease-in-out infinite;
+  color: rgba(0, 0, 0, 0.4); /* Made darker for better visibility */
+  transition: color 0.3s ease, transform 0.3s ease;
+  animation: pulseArrow 2.5s ease-in-out infinite;
 }
 
 .process-trail-arrow svg {
-  width: 20px;
-  height: 20px;
-  stroke-width: 2.5;
+  width: 24px; /* Increased size */
+  height: 24px; /* Increased size */
+  stroke-width: 3; /* Thicker strokes */
 }
 
 @keyframes pulseArrow {
   0%, 100% {
     transform: translateX(0);
-    opacity: 0.4;
+    opacity: 0.5;
   }
   50% {
-    transform: translateX(3px);
-    opacity: 0.8;
+    transform: translateX(5px); /* Slightly larger movement */
+    opacity: 1; /* Fully visible at peak */
   }
 }
 
 /* Visual container - takes top portion of the card */
 .process-card-visual {
   width: 100%;
-  height: 140px; /* Restored height slightly for better breathing space */
+  height: 105px; /* Reduced height for smaller cards */
   background: radial-gradient(circle at center, #16181f 0%, #08090c 100%);
   display: flex;
   align-items: center;
@@ -1598,64 +1660,43 @@ html, body {
   z-index: 2;
 }
 
-.process-vector-icon {
-  width: 62px;
-  height: 62px;
+.process-card-img {
+  width: 100%;
+  height: 90%;
+  object-fit: contain;
   z-index: 3;
-  color: rgba(255, 255, 255, 0.5);
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  opacity: 0.65;
+  filter: invert(1); /* Inverts black-on-white line art to white-on-black */
+  mix-blend-mode: screen; /* Blends the black background away */
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.process-card:hover .process-vector-icon {
-  transform: scale(1.08) translateY(-2px);
-  color: rgba(255, 255, 255, 0.95);
-  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.45));
-}
-
-/* Specific styling to make the last card's radar SVG slightly smaller */
-.process-grid .process-card:last-child .process-vector-icon {
-  width: 56px;
-  height: 56px;
-}
-
-/* Subtle animation for the radar line - Corrected to SVG center 50 50 */
-.radar-line {
-  transform-origin: 50px 50px;
-  animation: radarSweep 5s linear infinite;
-}
-
-@keyframes radarSweep {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.process-card:hover .process-card-img {
+  transform: scale(1.06) translateY(-2px);
+  opacity: 0.95;
 }
 
 /* Content/Text styling - bottom portion of the card */
 .process-card-info {
-  padding: 18px; /* Tighter card padding */
+  padding: 14px; /* Tighter card padding */
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .process-card-info h3 {
-  font-size: 16px; /* Slightly smaller text */
+  font-size: 14.5px; /* Slightly smaller text */
   font-weight: 500;
   color: var(--text-white);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   letter-spacing: -0.01em;
 }
 
 .process-card-info p {
-  font-size: 12.5px; /* Slightly smaller text */
+  font-size: 11.5px; /* Slightly smaller text */
   font-weight: 300;
-  line-height: 1.5;
+  line-height: 1.4;
   color: #8a8d9a; /* grayish blue */
 }
 
@@ -1669,8 +1710,9 @@ html, body {
   }
   
   .process-card {
-    max-width: 100%; /* Take full column width */
-    min-height: auto;
+    max-width: 260px; /* Increased width */
+    min-height: 215px; /* Reduced height from bottom to top */
+    margin: 0 auto;
   }
   
   /* Manage arrow structure for 2x2:
@@ -1687,10 +1729,6 @@ html, body {
   .process-grid .process-trail-arrow:nth-of-type(3),
   .process-grid .process-card:nth-of-type(4) {
     grid-row: 2;
-  }
-  
-  .process-card-visual {
-    height: 110px;
   }
 }
 
@@ -1732,11 +1770,11 @@ html, body {
 @keyframes pulseArrowVertical {
   0%, 100% {
     transform: rotate(90deg) translateY(0);
-    opacity: 0.4;
+    opacity: 0.5;
   }
   50% {
-    transform: rotate(90deg) translateY(3px);
-    opacity: 0.8;
+    transform: rotate(90deg) translateY(5px);
+    opacity: 1;
   }
 }
 
@@ -2209,17 +2247,17 @@ html, body {
 }
 
 .faq-item {
-  border: 1px solid var(--border-light);
+  border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: 16px;
   padding: 24px;
-  background-color: var(--bg-white);
+  background-color: #0d0e12; /* Premium dark background */
   transition: var(--transition);
   cursor: pointer;
 }
 
 .faq-item:hover {
-  border-color: rgba(0,0,0,0.15);
-  box-shadow: var(--shadow-premium);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .faq-question {
@@ -2232,13 +2270,13 @@ html, body {
 .faq-question h3 {
   font-size: 16.5px;
   font-weight: 500;
-  color: var(--text-dark);
+  color: var(--text-white); /* White text */
 }
 
 .faq-toggle {
   font-size: 20px;
   font-weight: 300;
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.4); /* Light grey/white toggle */
   line-height: 1;
 }
 
@@ -2258,13 +2296,14 @@ html, body {
 
 .faq-item.active .faq-toggle {
   transform: rotate(45deg);
+  color: var(--text-white);
 }
 
 .faq-answer p {
   font-size: 14.5px;
   font-weight: 300;
   line-height: 1.6;
-  color: var(--text-gray);
+  color: #8a8d9a; /* grayish blue text */
 }
 
 /* Closing Section */
@@ -2296,22 +2335,13 @@ html, body {
   margin-bottom: 40px;
 }
 
-.closing-section .btn-primary {
-  background-color: var(--bg-white);
-  color: var(--bg-dark);
-  border-color: var(--bg-white);
-}
-
-.closing-section .btn-primary:hover {
-  background-color: #eeeeee;
-  color: var(--bg-dark);
-}
+/* Inherits the premium gradient styling with white text */
 
 /* Footer styling adjustments */
 .footer {
   background-color: var(--bg-white);
   border-top: 1px solid var(--border-light);
-  padding: 50px 0;
+  padding: 12px 0;
 }
 
 .footer-container {
@@ -2319,37 +2349,15 @@ html, body {
   margin: 0 auto;
   padding: 0 40px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-}
-
-.footer-brand .logo-text {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--text-dark);
-  display: block;
-  margin-bottom: 6px;
+  text-align: center;
 }
 
 .footer-brand p {
-  font-size: 13px;
+  font-size: 11px;
   color: var(--text-light);
-}
-
-.footer-links {
-  display: flex;
-  gap: 30px;
-}
-
-.footer-links a {
-  font-size: 13.5px;
-  color: var(--text-gray);
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.footer-links a:hover {
-  color: var(--text-dark);
 }
 
 /* Responsive Queries for new sections */
@@ -2388,12 +2396,6 @@ html, body {
     flex-direction: column;
     align-items: center;
     gap: 40px;
-  }
-  
-  .footer-container {
-    flex-direction: column;
-    gap: 30px;
-    text-align: center;
   }
 }
 

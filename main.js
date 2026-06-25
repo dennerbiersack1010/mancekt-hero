@@ -6,7 +6,7 @@ const elements = {
 };
 
 // Numerical count animation helper
-function animateValue(obj, start, end, duration, suffix = '') {
+function animateValue(obj, start, end, duration, prefix = '', suffix = '') {
   if (!obj) return;
   let startTimestamp = null;
   const step = (timestamp) => {
@@ -14,11 +14,7 @@ function animateValue(obj, start, end, duration, suffix = '') {
     const progress = Math.min((timestamp - startTimestamp) / duration, 1);
     const currentValue = progress * (end - start) + start;
     
-    if (end % 1 !== 0) {
-      obj.innerHTML = currentValue.toFixed(1) + suffix;
-    } else {
-      obj.innerHTML = Math.floor(currentValue) + suffix;
-    }
+    obj.innerHTML = prefix + Math.floor(currentValue) + suffix;
     
     if (progress < 1) {
       window.requestAnimationFrame(step);
@@ -31,7 +27,7 @@ function animateValue(obj, start, end, duration, suffix = '') {
 document.addEventListener('DOMContentLoaded', () => {
   // Start counter for Mancekt
   if (elements.mancektStatVal1) {
-    animateValue(elements.mancektStatVal1, 0, 100, 1200, '%');
+    animateValue(elements.mancektStatVal1, 0, 100, 1200, '', '%');
   }
 
   // FAQ Accordion Toggle
@@ -51,5 +47,35 @@ document.addEventListener('DOMContentLoaded', () => {
         item.classList.add('active');
       }
     });
+  });
+
+  // Intersection Observer for counting case numbers
+  const caseStats = [
+    { id: 'caseStat1', start: 0, end: 138, prefix: '+', suffix: '%' },
+    { id: 'caseStat2', start: 0, end: 42, prefix: '-', suffix: '%' }
+  ];
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const targetId = entry.target.id;
+        const stat = caseStats.find(s => s.id === targetId);
+        if (stat) {
+          animateValue(entry.target, stat.start, stat.end, 1800, stat.prefix, stat.suffix);
+          observer.unobserve(entry.target); // Animate only once
+        }
+      }
+    });
+  }, observerOptions);
+
+  caseStats.forEach(stat => {
+    const el = document.getElementById(stat.id);
+    if (el) observer.observe(el);
   });
 });
