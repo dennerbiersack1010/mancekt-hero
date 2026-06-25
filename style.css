@@ -683,8 +683,8 @@ html, body {
   .image-wrapper {
     display: block;
     width: 100%;
-    max-width: 170px;
-    height: 180px;
+    max-width: 195px;
+    height: 205px;
     margin: 0 auto;
     transform: none;
   }
