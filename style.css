@@ -616,28 +616,37 @@ html, body {
   }
 
   .hero-section {
-    padding-top: 145px;
-    padding-bottom: 40px;
+    padding-top: 95px;
+    padding-bottom: 24px;
   }
 
   .hero-grid-container {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 10px;
     text-align: center;
-    padding-top: 10px;
+    padding-top: 0;
     padding-left: 20px;
     padding-right: 20px;
   }
-  
+
   .hero-content {
     order: 2;
     align-items: center;
     padding-right: 0;
   }
 
+  .hero-meta-tag {
+    padding: 5px 12px;
+    margin-bottom: 12px;
+  }
+
+  .meta-label {
+    font-size: 10px;
+  }
+
   .hero-title {
-    font-size: 38px;
-    margin-bottom: 16px;
+    font-size: 32px;
+    margin-bottom: 10px;
   }
 
 
@@ -645,8 +654,8 @@ html, body {
     font-size: 14px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 24px;
-    line-height: 1.5;
+    margin-bottom: 16px;
+    line-height: 1.45;
     max-width: 320px;
   }
 
@@ -668,16 +677,21 @@ html, body {
     justify-content: center;
     align-items: center;
     height: auto;
-    margin-bottom: 4px;
+    margin-bottom: 0;
   }
 
   .image-wrapper {
     display: block;
     width: 100%;
-    max-width: 260px;
-    height: 280px;
+    max-width: 170px;
+    height: 180px;
     margin: 0 auto;
     transform: none;
+  }
+
+  .statue-hover-container.is-active .statue-hover {
+    opacity: 0.95;
+    transform: scale(1.05) translateX(0) translateY(-5px);
   }
 
   .diagonal-divider {
@@ -1138,6 +1152,7 @@ html, body {
 @media (max-width: 900px) {
   .problem-section {
     padding: 70px 0;
+    background-image: none;
   }
   
   .problem-container {
@@ -2350,8 +2365,7 @@ html, body {
 
 /* Footer styling adjustments */
 .footer {
-  background-color: var(--bg-white);
-  border-top: 1px solid var(--border-light);
+  background-color: var(--bg-dark);
   padding: 12px 0;
 }
 
@@ -2368,7 +2382,7 @@ html, body {
 
 .footer-brand p {
   font-size: 11px;
-  color: var(--text-light);
+  color: #aaaaaa;
 }
 
 /* Responsive Queries for new sections */
@@ -2407,6 +2421,43 @@ html, body {
     flex-direction: column;
     align-items: center;
     gap: 40px;
+  }
+
+  .faq-section {
+    padding: 60px 0;
+  }
+
+  .faq-container {
+    padding: 0 24px;
+  }
+
+  .faq-section-title {
+    margin-bottom: 30px;
+  }
+
+  .faq-list {
+    gap: 12px;
+  }
+
+  .faq-item {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .faq-question h3 {
+    font-size: 14px;
+  }
+
+  .faq-toggle {
+    font-size: 18px;
+  }
+
+  .faq-item.active .faq-answer {
+    margin-top: 10px;
+  }
+
+  .faq-answer p {
+    font-size: 13px;
   }
 }
 

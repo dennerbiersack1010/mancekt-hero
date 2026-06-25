@@ -1,10 +1,5 @@
 // main.js
 
-// DOM Elements
-const elements = {
-  mancektStatVal1: document.getElementById('mancektStatVal1')
-};
-
 // Numerical count animation helper
 function animateValue(obj, start, end, duration, prefix = '', suffix = '') {
   if (!obj) return;
@@ -25,11 +20,6 @@ function animateValue(obj, start, end, duration, prefix = '', suffix = '') {
 
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
-  // Start counter for Mancekt
-  if (elements.mancektStatVal1) {
-    animateValue(elements.mancektStatVal1, 0, 100, 1200, '', '%');
-  }
-
   // FAQ Accordion Toggle
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
@@ -49,10 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Intersection Observer for counting case numbers
-  const caseStats = [
-    { id: 'caseStat1', start: 0, end: 138, prefix: '+', suffix: '%' },
-    { id: 'caseStat2', start: 0, end: 42, prefix: '-', suffix: '%' }
+  // Intersection Observer for counting up numbers when their section scrolls into view
+  const countUpStats = [
+    { id: 'mancektStatVal1', start: 0, end: 100, duration: 1200, prefix: '', suffix: '%' },
+    { id: 'caseStat1', start: 0, end: 138, duration: 1800, prefix: '+', suffix: '%' },
+    { id: 'caseStat2', start: 0, end: 42, duration: 1800, prefix: '-', suffix: '%' }
   ];
 
   const observerOptions = {
@@ -65,17 +56,25 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const targetId = entry.target.id;
-        const stat = caseStats.find(s => s.id === targetId);
+        const stat = countUpStats.find(s => s.id === targetId);
         if (stat) {
-          animateValue(entry.target, stat.start, stat.end, 1800, stat.prefix, stat.suffix);
+          animateValue(entry.target, stat.start, stat.end, stat.duration, stat.prefix, stat.suffix);
           observer.unobserve(entry.target); // Animate only once
         }
       }
     });
   }, observerOptions);
 
-  caseStats.forEach(stat => {
+  countUpStats.forEach(stat => {
     const el = document.getElementById(stat.id);
     if (el) observer.observe(el);
   });
+
+  // Toggle the hero statue's chart overlay on tap (touch devices only; desktop keeps the :hover behavior)
+  const statueContainer = document.querySelector('.statue-hover-container');
+  if (statueContainer && window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+    statueContainer.addEventListener('click', () => {
+      statueContainer.classList.toggle('is-active');
+    });
+  }
 });
