@@ -599,6 +599,7 @@
       </div>
       
 
+
       <!-- Meta Pixel -->
       <script>
       !function(f,b,e,v,n,t,s)
@@ -634,23 +635,43 @@
 
         var BASE = 'https://mancekt.com/yayforms-consorcio/';
 
-        function buildAndRedirect(){
-          // fbp
-          var fbp = getCookie('_fbp');
-          if(fbp) out.set('fbp', fbp);
+        function applyLinks(){
+          var q = out.toString();
+          document.querySelectorAll('a[data-cta]').forEach(function(a){
+            a.href = q ? BASE + '?' + q : BASE;
+          });
+        }
 
-          // fbc
-          var fbc = getCookie('_fbc');
-          if(!fbc){
-            var fbclid = inc.get('fbclid');
-            if(fbclid) fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+        // fbp — aguarda até 2s pelo Pixel setar o cookie
+        function waitForFbp(cb){
+          var waited = 0;
+          function check(){
+            var fbp = getCookie('_fbp');
+            if(fbp){ out.set('fbp', fbp); cb(); }
+            else if(waited >= 2000){ cb(); }
+            else { waited += 150; setTimeout(check, 150); }
           }
-          if(fbc) out.set('fbc', fbc);
+          check();
+        }
 
-          // country fixo
-          out.set('country', 'BR');
+        // fbc
+        var fbc = getCookie('_fbc');
+        if(!fbc){
+          var fbclid = inc.get('fbclid');
+          if(fbclid) fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+        }
+        if(fbc) out.set('fbc', fbc);
 
-          // geo via ipwho.is
+        // country fixo
+        out.set('country', 'BR');
+
+        // aplica links imediatamente com o que já tem
+        applyLinks();
+
+        // aguarda fbp e depois busca geo
+        waitForFbp(function(){
+          applyLinks();
+
           fetch('https://ipwho.is/')
             .then(function(r){ return r.json(); })
             .then(function(d){
@@ -664,24 +685,9 @@
             })
             .catch(function(){})
             .finally(function(){
-              var q = out.toString();
-              window.location.replace(BASE + (q ? '?' + q : ''));
+              applyLinks();
             });
-        }
-
-        // Aguarda o Pixel inicializar e setar o cookie _fbp antes de redirecionar
-        var waited = 0;
-        function waitForFbp(){
-          var fbp = getCookie('_fbp');
-          if(fbp || waited >= 2000){
-            buildAndRedirect();
-          } else {
-            waited += 150;
-            setTimeout(waitForFbp, 150);
-          }
-        }
-
-        waitForFbp();
+        });
       })();
       </script>
     </section>
