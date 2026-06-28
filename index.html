@@ -598,40 +598,91 @@
         <a href="https://mancekt.com/yayforms-consorcio/" class="btn-primary" data-cta>Quero ter controle sobre minhas vendas</a>
       </div>
       
+
+      <!-- Meta Pixel -->
       <script>
-        (function(){
-          function getCookie(n){
-            var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)');
-            return m ? decodeURIComponent(m.pop()) : '';
-          }
-          function norm(v){
-            return (v||'').toString().toLowerCase()
-              .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
-              .replace(/[^a-z0-9]/g,'');
-          }
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1371660007771023');
+      fbq('track', 'PageView');
+      </script>
+      <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1371660007771023&ev=PageView&noscript=1"/></noscript>
 
-          var inc = new URLSearchParams(location.search);
-          var out = new URLSearchParams();
-          inc.forEach(function(v, k){ if(v) out.set(k, v); });
+      <!-- Tracking UTM + FBP + FBC + Geo -->
+      <script>
+      (function(){
+        function getCookie(n){
+          var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)');
+          return m ? decodeURIComponent(m.pop()) : '';
+        }
+        function norm(v){
+          return (v||'').toString().toLowerCase()
+            .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+            .replace(/[^a-z0-9]/g,'');
+        }
 
-          // fbp e fbc
-          var fbp = getCookie('_fbp'); if(fbp) out.set('fbp', fbp);
+        var inc = new URLSearchParams(location.search);
+        var out = new URLSearchParams();
+        inc.forEach(function(v, k){ if(v) out.set(k, v); });
+
+        var BASE = 'https://mancekt.com/yayforms-consorcio/';
+
+        function buildAndRedirect(){
+          // fbp
+          var fbp = getCookie('_fbp');
+          if(fbp) out.set('fbp', fbp);
+
+          // fbc
           var fbc = getCookie('_fbc');
-          if(!fbc){ var fbclid = inc.get('fbclid'); if(fbclid) fbc = 'fb.1.' + Date.now() + '.' + fbclid; }
+          if(!fbc){
+            var fbclid = inc.get('fbclid');
+            if(fbclid) fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+          }
           if(fbc) out.set('fbc', fbc);
 
           // country fixo
           out.set('country', 'BR');
 
-          function applyLinks(){
-            var q = out.toString();
-            var base = 'https://mancekt.com/yayforms-consorcio/';
-            document.querySelectorAll('a[data-cta]').forEach(function(a){
-              a.href = q ? base + '?' + q : base;
+          // geo via ipwho.is
+          fetch('https://ipwho.is/')
+            .then(function(r){ return r.json(); })
+            .then(function(d){
+              if(d && d.success !== false){
+                if(d.city)        out.set('ct', norm(d.city));
+                if(d.region_code) out.set('st', norm(d.region_code));
+                else if(d.region) out.set('st', norm(d.region));
+                if(d.postal)      out.set('zp', (d.postal+'').replace(/\D/g,'').slice(0,5));
+                if(d.ip)          out.set('client_ip', d.ip);
+              }
+            })
+            .catch(function(){})
+            .finally(function(){
+              var q = out.toString();
+              window.location.replace(BASE + (q ? '?' + q : ''));
             });
+        }
+
+        // Aguarda o Pixel inicializar e setar o cookie _fbp antes de redirecionar
+        var waited = 0;
+        function waitForFbp(){
+          var fbp = getCookie('_fbp');
+          if(fbp || waited >= 2000){
+            buildAndRedirect();
+          } else {
+            waited += 150;
+            setTimeout(waitForFbp, 150);
           }
-          applyLinks();
-        })();
+        }
+
+        waitForFbp();
+      })();
       </script>
     </section>
 
