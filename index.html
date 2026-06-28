@@ -13,6 +13,19 @@
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="style.css">
+  <script>
+  (function(){
+    var inc = new URLSearchParams(location.search);
+    var keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+
+    keys.forEach(function(k){
+      var v = inc.get(k);
+      if(v) console.log(k + ': ' + v);
+    });
+
+    console.log('UTMs capturadas:', inc.toString());
+  })();
+  </script>
 </head>
 <body>
 
